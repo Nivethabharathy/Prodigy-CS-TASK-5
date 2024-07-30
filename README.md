@@ -1,24 +1,3 @@
-from scapy.all import *
+PRODIGY_CS_5
 
-def packet_callback(packet):
-    if IP in packet:
-        src_ip = packet[IP].src
-        dst_ip = packet[IP].dst
-        protocol = packet[IP].proto
-        print(f"Source IP: {src_ip} --> Destination IP: {dst_ip} Protocol: {protocol}")
-        
-        if TCP in packet:
-            src_port = packet[TCP].sport
-            dst_port = packet[TCP].dport
-            print(f"Source Port: {src_port} --> Destination Port: {dst_port}")
-
-            if Raw in packet:
-                payload = packet[Raw].load
-                print(f"Payload: {payload}")
-
-def main():
-    print("Starting packet sniffer...")
-    sniff(prn=packet_callback, store=0)
-
-if __name__ == "__main__":
-    main()
+Develop a packet sniffer tool that captures and analyzes network packets. Display relevant infromation such as source abd destination IP addresses, protocols, and payload data. Ensure the ethical use of the tool for educational purposes
